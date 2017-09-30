@@ -14,13 +14,15 @@ int main() {
 	Array a(5);
 
 	a.push_back(3);
-	a.pop_back();
+	//a.pop_back();
 	a.insert(2, 5);
 	//a.clear();
 
 	//cout << a.get_size();
 
-	a.get_item(3) = 8;
+	a.get_item(1) = 8;
+
+	a.pop_back();
 
 	for (size_t i = 0; i < a.get_size(); i++) {
 		cout << a.get_item(i) << endl;
