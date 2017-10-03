@@ -1,0 +1,4 @@
+﻿  Main.cpp
+d:\gitkraken\resources\dynamiclist\src\list.h(56): warning C4172: returning address of local variable or temporary: copy
+  dynamicList.vcxproj -> D:\GitKraken\Resources\dynamicList\Debug\dynamicList.exe
+  dynamicList.vcxproj -> D:\GitKraken\Resources\dynamicList\Debug\dynamicList.pdb (Partial PDB)
