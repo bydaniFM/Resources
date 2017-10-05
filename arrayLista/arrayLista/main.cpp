@@ -28,5 +28,12 @@ int main() {
 		cout << a.get_item(i) << endl;
 	}
 
+	Array c(10), b;
+	b = c;
+
+	c.clear();
+
+	b[0] = 0;
+
 	return 0;
 }
