@@ -55,7 +55,7 @@ namespace example
 		{
 			for (size_t i = 0; i < SIZE; ++i)
 			{
-				this->values[i] += other.values[i]);
+				this->values[i] += other.values[i];
 			}
 
 			return *this;
@@ -77,7 +77,7 @@ namespace example
 				total += values[i] * values[i];
 			}
 
-			return std::sqrt(modulus);
+			return std::sqrt(total);
 		}
 
 		explicit operator TYPE () const
@@ -91,7 +91,7 @@ namespace example
 	class Vector< TYPE, 3 >
 	{
 
-		static_assert(SIZE > 0);
+		//static_assert(SIZE > 0);
 
 	public:
 

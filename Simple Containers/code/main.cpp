@@ -32,10 +32,10 @@ int main ()
 {
 	List< int > list;
 
-	Vector< int,   3 > vector3i({ 0, 0, 0 });
+	/*Vector< int,   3 > vector3i({ 0, 0, 0 });
 	Vector< float, 3 > vector3f(vector3i);
 
-	float f = vector3f;
+	float f = vector3f;*/
 
     list.push_back  (2);
     list.push_front (0);
