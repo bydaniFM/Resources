@@ -9,13 +9,15 @@ Date: 03/10/2017
 using exercise::List;
 using namespace std;
 
-void dump(List & list)
+template<typename T>
+void dump(List<T> & list)
 {
 	if (!list.empty())
 	{
 		cout << "[#" << list.size() << "]: ";
 
-		for (List::Iterator i = list.begin(); i != list.end(); ++i)
+		//for (auto i = list.begin(); i != list.end(); ++i)		// auto -> tiene que haber una asignación, y será del mismo tipo
+		for(auto & item : list)									// for comprimido (c++11) tiene que tener begin() y end()
 		{
 			cout << *i << ", ";
 		}
@@ -27,7 +29,7 @@ void dump(List & list)
 
 int main()
 {
-	List list;
+	List<int> list;
 
 	list.pushBack(2);
 	list.pushFront(0);
@@ -38,7 +40,8 @@ int main()
 
 	// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
-	List::Iterator i = list.begin();
+	//List<int>::Iterator i = list.begin();
+	auto i = list.begin();
 
 	i++;
 

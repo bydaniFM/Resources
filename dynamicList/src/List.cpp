@@ -4,7 +4,7 @@ Date: 03/10/2017
 */
 
 #include "List.h"
-
+/*
 using exercise::List;
 
 void List::clear() {
@@ -114,3 +114,4 @@ void List::erase(const Iterator & i) {
 		count--;
 	}
 }
+*/
