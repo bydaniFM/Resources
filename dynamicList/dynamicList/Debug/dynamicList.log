@@ -1,4 +1,0 @@
-﻿  Main.cpp
-c:\users\alumno\downloads\dynamiclist\src\list.h(62): warning C4172: devolución de dirección de la variable local o temporal: copy
-  dynamicList.vcxproj -> C:\Users\Alumno\Downloads\dynamicList\Debug\dynamicList.exe
-  dynamicList.vcxproj -> C:\Users\Alumno\Downloads\dynamicList\Debug\dynamicList.pdb (Partial PDB)
