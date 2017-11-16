@@ -25,6 +25,7 @@
     <ClInclude Include="src\Matrix.hpp" />
     <ClInclude Include="src\Model.hpp" />
     <ClInclude Include="src\Point.hpp" />
+    <ClInclude Include="src\View.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1802C09D-2F82-4986-9FE0-E0AD5DCF5699}</ProjectGuid>

@@ -29,5 +29,8 @@
     <ClInclude Include="src\Model.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\View.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
