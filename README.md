@@ -6,3 +6,7 @@ To implement:
 	- Matrix
 	- Quaternion
 	- Point
+	
+Links:
+	http://wiki.libsdl.org/APIByCategory
+	https://www.libsdl.org/projects/
