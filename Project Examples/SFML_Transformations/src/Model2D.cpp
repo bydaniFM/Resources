@@ -57,4 +57,23 @@ namespace example
 	}
 
 
+	//void render(sf::RenderWindow & renderer, const Transformation & parent_transform)
+	//{
+	//	Scale scale(...);
+	//	Rotation rotation(...);
+	//	Traslation traslation(...)
+
+	//		Transformation  node_transform = traslation * rotation * scale;
+	//	Transformation final_transform = parent_transform * node_transform;
+
+	//	// Transformar los vértices con final_transform
+	//	// Dibujar los vértices
+
+	//	for (auto & child : children)
+	//	{
+	//		child->render(renderer, final_transform);
+	//	}
+	//}
+
+
 }

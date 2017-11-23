@@ -13,8 +13,11 @@
 #define MODEL2D_HEADER
 
 #include <vector>
+#include <list>
+#include <memory>
 #include "Point.hpp"
 #include "Vector.hpp"
+#include "Transformation.hpp"
 
 namespace sf { class RenderWindow; }
 
@@ -27,6 +30,9 @@ namespace example
 	class Model2D
 	{
 		typedef std::vector< Point3f > Vertex_Buffer;
+		typedef std::list< std::unique_ptr< Model2D > > Child_List;
+
+		Child_List children;
 
 		// Buffers de vértices:
 
@@ -97,6 +103,7 @@ namespace example
 		}
 
 		void render(sf::RenderWindow & renderer);
+		//void render(sf::RenderWindow & renderer, const Transformation< & parent_transform);
 
 	};
 
