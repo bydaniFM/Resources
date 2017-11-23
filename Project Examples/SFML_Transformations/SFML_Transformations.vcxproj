@@ -20,11 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Model2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Algorithms.hpp" />
+    <ClInclude Include="src\Coordinates.hpp" />
+    <ClInclude Include="src\macros.hpp" />
     <ClInclude Include="src\Matrix.hpp" />
-    <ClInclude Include="src\Model.hpp" />
+    <ClInclude Include="src\Model2D.hpp" />
     <ClInclude Include="src\Point.hpp" />
+    <ClInclude Include="src\Rotation.hpp" />
+    <ClInclude Include="src\Scaling.hpp" />
+    <ClInclude Include="src\Transformation.hpp" />
+    <ClInclude Include="src\Translation.hpp" />
+    <ClInclude Include="src\types.hpp" />
+    <ClInclude Include="src\Vector.hpp" />
     <ClInclude Include="src\View.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
