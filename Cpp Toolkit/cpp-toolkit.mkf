@@ -1,0 +1,57 @@
+
+includepaths
+{
+    headers
+}
+
+files
+{
+
+    (headers)
+    ["headers"]
+
+        Algorithms.hpp
+        Array.hpp
+        Char.hpp
+        Cloneable.hpp
+        Coordinates.hpp
+        Decoder.hpp
+        Encoder.hpp
+        File_Reader.hpp
+        File_Writer.hpp
+        Input_Stream.hpp
+        macros.hpp
+        Matrix.hpp
+        Memory_Reader.hpp
+        Memory_Writer.hpp
+        Non_Copyable.hpp
+        Obfuscation_Decoder.hpp
+        Obfuscation_Encoder.hpp
+        Object_Pool.hpp
+        Output_Stream.hpp
+        Point.hpp
+        Pointer.hpp
+        Random_Generator.hpp
+        Reader.hpp
+        Rotation.hpp
+        Scaling.hpp
+        Seekable.hpp
+        Shared_Ptr.hpp
+        Stream.hpp
+        String.hpp
+        Transformation.hpp
+        Translation.hpp
+        types.hpp
+        Vector.hpp
+        Void_Decoder.hpp
+        Void_Encoder.hpp
+        Writer.hpp
+
+    (sources)
+    ["sources"]
+
+        Input_Stream.cpp
+        Output_Stream.cpp
+        String.cpp
+
+}
