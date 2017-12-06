@@ -1,7 +1,0 @@
-/*
-
-Step/Update
-
-Draw
-
-*/

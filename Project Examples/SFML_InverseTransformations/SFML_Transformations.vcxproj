@@ -35,13 +35,12 @@
     <ClInclude Include="src\Translation.hpp" />
     <ClInclude Include="src\types.hpp" />
     <ClInclude Include="src\Vector.hpp" />
-    <ClInclude Include="src\View.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1802C09D-2F82-4986-9FE0-E0AD5DCF5699}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>VSSample</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <ProjectName>SFML_Transformations</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

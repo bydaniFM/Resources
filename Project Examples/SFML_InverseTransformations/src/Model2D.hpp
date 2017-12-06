@@ -13,7 +13,6 @@
 #define MODEL2D_HEADER
 
 #include <vector>
-#include <list>
 #include <memory>
 #include "Point.hpp"
 #include "Vector.hpp"
@@ -31,91 +30,103 @@ namespace example
 
 	class Model2D
 	{
-		typedef std::vector< Point3f > Vertex_Buffer;
-		typedef std::shared_ptr< Model2D > Child;
+
+		/// Esta estructura guarda la información de control de movimiento (angular) de un nodo que
+		/// forma parte del Model2D mientras se está buscando una solución de cinemática inversa.
+
+		struct Control
+		{
+			Model2D * node;             ///< Nodo que se controla con la información de la estructura
+			float     before;           ///< Ángulo antes de comenzar la búsqueda
+			float     start;            ///< Ángulo con el que se empieza a aproximar
+			float     limit;            ///< Ángulo con el que termina la aproximación
+			float     angle;            ///< Ángulo en un momento dado
+			float     step;             ///< Paso con el que se incrementa el ángulo desde start hasta limit
+			float     best;             ///< Ángulo de la mejor solución hasta la última iteración
+		};
+
+		typedef std::vector< Point3f > Vertex_Buffer;       ///< Tipo de la  lista de vértices del modelo
+		typedef std::vector< Control > Control_List;        ///< Tipo de una lista de controles de movimiento
+
+	private:
 
 		// Buffers de vértices:
 
-		Vertex_Buffer local_vertices;
-		Vertex_Buffer transformed_vertices;
+		Vertex_Buffer local_vertices;                       ///< Coordenadas locales de los vértices del modelo
+		Vertex_Buffer transformed_vertices;                 ///< Buffer prealojado para guardar las coordenadas transformadas cada fotograma
 
-		// Atributos de transformación:
+															// Atributos de transformación:
 
-		Vector2f	  position;
-		float		  angle;
-		float		  scale;
+		Vector2f      position;                             ///< Posición del origen de coordenadas locales del modelo
+		float         angle;                                ///< Ángulo del modelo alrededor de su origen de coordenadas
+		float         scale;                                ///< Escala del modelo
 
-		//Atributos de restriccion
+															// Atributos de restricción:
 
-		float min_angle;
-		float max_angle;
+		float         min_angle;                            ///< Ángulo mínimo en el que puede orientarse el modelo
+		float         max_angle;                            ///< Ángulo máximo en el que puede orientarse el modelo
+		Point3f       reference_point;                      ///< Coordenadas locales del punto que debe coincidir con
+															///< el target al buscar la solución de cinemática inversa
+															// Atributos de animación:
 
-		// Atributos de animación:
+		float         target_angle;                         ///< Ángulo hacia el que debe rotar el modelo (lo establece solve_inverse_kinematics)
 
-		float original_angle;
-		float target_angle;
-		float angle_delta;
+															// Atributos de grafo:
 
-		Point2f reference_point;
+		std::shared_ptr< Model2D > child;                   ///< Primero de los nodos hijos que puede tener el modelo
+		Transformation2f final_transform;                   ///< Caché prealojado donde se guarda la transformación final del modelo,
+															///< que es la transformación propia combinada con la de los nodos padre
+	public:
 
-		//Child nodes
+		Model2D(const std::initializer_list< Point3f > & points);
 
-		Child child;
+		void set_child(std::shared_ptr< Model2D > & given_child)
+		{
+			child = given_child;
+		}
 
-		//Own transformation plus parent transformations
-		Transformation2f final_transform;
+		void set_position(float x, float y) { position = Vector2f({ x, y }); }
+		void set_angle(float new_angle) { target_angle = angle = new_angle; }
+		void set_scale(float new_scale) { scale = new_scale; }
+		void set_min_angle(float new_angle) { min_angle = new_angle; }
+		void set_max_angle(float new_angle) { max_angle = new_angle; }
+		void set_target_angle(float new_angle) { target_angle = new_angle; }
+		void set_reference(const Point2f & point) { reference_point = Point3f({ point[0], point[1], 1.f }); }
 
 	public:
 
-		Model2D(const std::initializer_list< Point3f > & points)
-		{
-			local_vertices.reserve(points.size());
+		/// Actualiza la animación del modelo y sus nodos hijos.
 
-			for (auto & point : points)
-			{
-				local_vertices.push_back(point);
-			}
+		void update();
 
-			transformed_vertices.resize(local_vertices.size());
+		/// Calcula la matriz de transformación final del nodo y las de sus hijos recursivamente.
 
-			set_position(0, 0);
-			set_angle(0);
-			set_scale(1);
+		void transform(const Transformation2f & parent_transform = Transformation2f());
 
-		}
-
-		void set_child(std::shared_ptr<Model2D> new_child) { child = new_child; }
-
-		void set_position		(float x, float y) { position = Vector2f({ x, y }); }
-		void set_angle			(float new_angle) { 	angle = new_angle; }
-		void set_min_angle		(float new_angle) { min_angle = new_angle; }
-		void set_max_angle		(float new_angle) { max_angle = new_angle; }
-		void set_scale			(float new_scale) { scale = new_scale; }
-
-
-		void set_reference(const Point2f & point) { reference_point = point; }
-
-		void update(float delta)
-		{
-			//Forward kinematics
-			/*position += linear_speed;
-			angle += angular_speed;*/
-		}
+		/// Dibuja el nodo y sus hijos recursivamente.
 
 		void render(sf::RenderWindow & renderer);
 
-		void transform(const Transformation2f & parent_transform);
+		/// Determina la posición (angular) hacia la que debe moverse el modelo y sus hijos
+		/// para que el punto de referencia del último nodo del grafo coincida con el punto
+		/// target indicado dentro de cierta tolerancia definica con steps y epsilon.
 
-		bool solveInverse(const Point2f & target, float epsilon);
+		void solve_inverse_kinematics(const Point2f & target, int steps, float epsilon);
 
 	private:
-		
-		Model2D * find_last_node() {
-			if (child.get())
-				return child->find_last_node();
-			else
-				return this;
-		}
+
+		/// Devuelve el número de nodos hijos que tiene el modelo.
+
+		size_t count_children() const;
+
+		/// Devuelve un puntero al último nodo del grafo.
+
+		Model2D * find_last_node();
+
+		/// Enlaza cada nodo del grafo con la estructura de control que le corresponde según
+		/// su profundidad (de recursión).
+
+		void link_node_controls(Control_List & controls, size_t depth);
 
 	};
 
