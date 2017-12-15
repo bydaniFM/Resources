@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<scene>
+	<entities>
+		<entity name="robot">
+			<components>
+				<component type="transform">
+					<position>0,0,0</position>
+					<scale>2.1</scale>
+				</component>
+				<component type="render">
+					<mesh>robot.obj</mesh>
+					<material>metal.mtl</material>
+				</component>
+				...
+			</components>
+		</entity>
+	</entities>
+</scene>
