@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SFML_Physics2D", "SFML_Physics2D.vcxproj", "{591BF99B-BC90-42CE-9AA7-D7387EE3D373}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Debug|x64.ActiveCfg = Debug|x64
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Debug|x64.Build.0 = Debug|x64
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Debug|x86.ActiveCfg = Debug|Win32
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Debug|x86.Build.0 = Debug|Win32
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Release|x64.ActiveCfg = Release|x64
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Release|x64.Build.0 = Release|x64
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Release|x86.ActiveCfg = Release|Win32
+		{591BF99B-BC90-42CE-9AA7-D7387EE3D373}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EE0EA1A-44EB-4512-865A-B5935F8D87BB}
+	EndGlobalSection
+EndGlobal
