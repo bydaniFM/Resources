@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
