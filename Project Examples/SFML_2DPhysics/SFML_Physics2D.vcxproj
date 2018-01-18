@@ -19,13 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Body.hpp" />
+    <ClInclude Include="src\Model.hpp" />
     <ClInclude Include="src\Renderer.hpp" />
     <ClInclude Include="src\Window.hpp" />
+    <ClInclude Include="src\World.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{591BF99B-BC90-42CE-9AA7-D7387EE3D373}</ProjectGuid>
